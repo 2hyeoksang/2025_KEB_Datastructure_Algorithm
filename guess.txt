@@ -1,0 +1,9 @@
+Guess Number = 500 / 500 is lower. Left Chance : 9
+Guess Number = 750 / 750 is bigger. Left Chance : 8
+Guess Number = 625 / 625 is lower. Left Chance : 7
+Guess Number = 687 / 687 is bigger. Left Chance : 6
+Guess Number = 656 / 656 is bigger. Left Chance : 5
+Guess Number = 640 / 640 is lower. Left Chance : 4
+Guess Number = 648 / 648 is lower. Left Chance : 3
+Guess Number = 652 / 652 is bigger. Left Chance : 2
+Guess Number = 650 / You Win. The Answer is 650
