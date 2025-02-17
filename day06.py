@@ -1,42 +1,11 @@
-memo = dict()
+import numpy as np
 
-def fibo_memo(n):
-    if n in memo:
-        return memo[n]
-    elif n <= 1:
-        return n
-    else:
-        memo[n] = fibo_memo(n-1) + fibo_memo(n-2)
-        return memo[n]
+narr = np.array([1,3.1,2,9])    #numpy는 C에 사용. 원소를 높은 type으로 다 변환시킴 float64 = double
+#타입이 같아야 다루기 편하다
+print(type(narr))
+print(type(narr), type(narr[2]),type(narr[3]))
+print(narr[0],narr[1],narr[2],narr[3])
 
-def fibo_loop(n):
-    n_list = [0,1]
-    for i in range(n+1):
-        n_list.append(n_list[i] + n_list[i+1])
-
-    return n_list[n]
-
-def fibo_recursion(number: int) -> int:
-    """
-    fibonacci function by recursion.
-    :param number: integer number
-    :return: integer number
-    """
-    if number == 0:
-        return 0
-
-    elif number == 1:
-        return 1
-    else:
-
-        return fibo_recursion(number - 1) + fibo_recursion(number - 2)
-
-
-# n = int(input("Input number : "))
-# for i in range(0, n):
-#     print(i)
-#     print(fibo_recursion(i))
-n=int(input("?"))
-print(fibo_recursion(n))
-print(fibo_loop(n))
-print(fibo_memo(n))
+array = [9,-11,8,7]
+print(array[0],array[1],array[2],array[3])
+print(id(array[0]),id(array[1]),id(array[2]),id(array[3]))
