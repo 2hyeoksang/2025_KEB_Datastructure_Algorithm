@@ -1,33 +1,34 @@
-def print_poly(f_x, t_x) -> str:
-    #term = len(f_x) - 1
-    poly_expression = "f(x) = "
+memo = dict()
 
-    for i in range(len(f_x)):
-        coefficient = f_x[i]
-        term = t_x[i]
+def fibo_memo(n):
+    if n in memo:
+        return memo[n]
+    elif n <= 1:
+        return n
+    else:
+        memo[n] = fibo_memo(n-1) + fibo_memo(n-2)
+        return memo[n]
 
-        if coefficient >= 0 and i != 0:
-            poly_expression = poly_expression + "+"
-        poly_expression = poly_expression + f'{coefficient}x^{term} '
+def fibo_recursion(number: int) -> int:
+    """
+    fibonacci function by recursion.
+    :param number: integer number
+    :return: integer number
+    """
+    if number == 0:
+        return 0
 
-    return poly_expression
+    elif number == 1:
+        return 1
+    else:
 
-
-def calculation_poly(x_value, f_x, t_x) -> int:
-    return_value = 0
-
-    for i in range(len(fx)):
-        coefficient = f_x[i]
-        term = t_x[i]
-        return_value += coefficient * pow(x_value, term)
-
-    return return_value
+        return fibo_recursion(number - 1) + fibo_recursion(number - 2)
 
 
-#fx = [2, 3, 4, 0, -9]
-fx = [2,5,-9,11]
-tx = [20,7,2,0]
-
-if __name__ == "__main__":
-    print(print_poly(fx,tx))
-    print(calculation_poly(int(input("x 값 : ")), fx,tx))
+# n = int(input("Input number : "))
+# for i in range(0, n):
+#     print(i)
+#     print(fibo_recursion(i))
+n=int(input("?"))
+print(fibo_recursion(n))
+print(fibo_memo(n))
