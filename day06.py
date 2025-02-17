@@ -9,6 +9,13 @@ def fibo_memo(n):
         memo[n] = fibo_memo(n-1) + fibo_memo(n-2)
         return memo[n]
 
+def fibo_loop(n):
+    n_list = [0,1]
+    for i in range(n+1):
+        n_list.append(n_list[i] + n_list[i+1])
+
+    return n_list[n]
+
 def fibo_recursion(number: int) -> int:
     """
     fibonacci function by recursion.
@@ -31,4 +38,5 @@ def fibo_recursion(number: int) -> int:
 #     print(fibo_recursion(i))
 n=int(input("?"))
 print(fibo_recursion(n))
+print(fibo_loop(n))
 print(fibo_memo(n))
