@@ -1,35 +1,16 @@
-class Stack:
-    def __init__(self):
-        self.items = []
+def a(i):
+    j = 9
+    print(i,j)
 
-    def push(self,data):
-        self.items.append(data)
+def b(k):
+    a(1)
+    print(k)
 
-    def pop(self):
-        return self.items.pop()
+def main():
+    print("strat")
+    b(3)
 
-    def size(self):
-        return len(self.items)
+if __name__ == "__main__":
+    main()
 
-    def peek(self):
-        return self.items[-1]
-
-
-    def is_empty(self):
-        return len(self.items) == 0
-
-
-
-
-s1 = Stack()
-s1.push(-9)
-s1.push(11)
-s1.push(977)
-
-print(s1.peek())
-print(s1.pop())
-print(s1.peek())
-print(s1.is_empty())
-s1.pop()
-s1.pop()
-print(s1.is_empty())
+# 빨간 점 : 내가 원하는 멈추게 하는 곳 Break Point
