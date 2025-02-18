@@ -5,69 +5,45 @@ class Node:
         self.data = data
         self.next = next
 
-class LinkedList:
+class Queue:
     def __init__(self):
-        self.head = None
-
-    def append(self,data):
-        if not self.head:
-            self.head = Node(data)
-            return
-        current = self.head
-        while current.next :
-            current = current.next
-        current.next = Node(data)
+        self.front = None
+        self.rear = None
+        self._size = 0
 
 
-    def search(self,target):
-        current = self.head
-        while current.next:
-            if current.data == target:
-                return True
-            else:
-                current = current.next
-        return False
+    def enqueue(self, data):
+        self._size += 1
+        node = Node(data)
+        if self.rear is None:
+            self.front = node
+            self.rear = node
+        else:
+            self.rear.next = node
+            self.rear = node
 
 
-    def remove(self,target):
-        if self.head.data == target:
-            self.head = self.head.next
-            print('선두노드 삭제')
-            return
-        current = self.head
-        previous = None
-        while current :
-            if current.data == target :
-                previous.next = current.next
-            previous = current  #MOVE
-            current = current.next
+    def dequeue(self):
+        if self.front is None:
+            raise IndexError('dequeue from empty queue')
+        self._size -= 1
+        temp = self.front   #Back-Up
+        self.front = self.front.next    #Update
+        if self.front is None :
+            self.rear = None
+
+        return temp.data
 
 
-    def __str__(self):
-        node = self.head
-        while node is not None :
-            print(node.data)
-            node = node.next
-        return "end"
+    def size(self):
+        return self._size
 
 
 if __name__ == "__main__":
-    l = LinkedList()
-    l.append(7)
-    l.append(-11)
-    l.append(8)
-    print(l)
-
-    l.remove(-11)
-    print(l)
-
-    # l = LinkedList()
-    # i = 0
-    # while i < 20:
-    #     n = random.randint(1,20)
-    #     l.append(n)
-    #     print(n,end = ' ')
-    #     i += 1
-    #
-    # #print(l)
-    # print(l.search(10))
+    q = Queue()
+    q.enqueue(7)
+    q.enqueue(-11)
+    q.enqueue(8)
+    print(q.size())
+    print(q.dequeue())
+    print(q.size())
