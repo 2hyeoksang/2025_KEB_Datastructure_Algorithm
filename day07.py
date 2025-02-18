@@ -16,6 +16,17 @@ class LinkedList:
             current = current.next
         current.next = Node(data)
 
+
+    def search(self,target):
+        current = self.head
+        while current.next:
+            if current.data == target:
+                return True
+            else:
+                current = current.next
+        return False
+
+
     def __str__(self):
         node = self.head
         while node is not None :
@@ -29,3 +40,5 @@ if __name__ == "__main__":
     l.append(-11)
     l.append(8)
     print(l)
+
+    print(l.search(-11))
