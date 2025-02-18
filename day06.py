@@ -12,7 +12,7 @@ def guess_num(a,b):
 with open('guess.txt','w') as fp:
     while chance != 0 :
         guess = guess_num(a,b)
-        print(f'C1 : "The Answer is {guess}."')
+        print(f'C1 : "The Answer kis {guess}."')
         fp.write(f'Guess Number = {guess} / ')
         if guess == ans:
             print(f'C2 : "You Win. The Answer is {ans}."\n')
