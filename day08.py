@@ -64,6 +64,9 @@ while True:
                 parent.right = current.right
             del(current)
 
+        #elif current.left is not None and current.right is not None:
+
+
         print(deleteName, '이(가) 삭제됨.')
         break
 
