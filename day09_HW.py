@@ -59,6 +59,12 @@ def bfs(node):
         elif current.left is None and current.right is not None:
             queue.append(current.right)
 
+        # 이게 더 간결하다
+        # if current.left:
+        #     queue.append(current.left)
+        # if current.right:
+        #     queue.append(current.right)
+
 
 def delete(root, value):
     if root is None:
