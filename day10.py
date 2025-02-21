@@ -36,8 +36,32 @@ def insert_sort(arr):
 
     return arr
 
-arr = [random.randint(1,100000) for _ in range(10000)]
-new_arr = arr.copy()
 
-print(bubble_sort(arr))
-print(insert_sort(new_arr))
+# @time_decorator   재귀함수 쓸 때는 조심
+def quick_sort(arr):
+    n = len(arr)
+    if n <= 1 :
+        return arr
+
+    pivot = arr[n//2]
+    left, right = [], []
+
+    for num in arr :
+        if num < pivot :
+            left.append(num)
+        elif num > pivot :
+            right.append(num)
+
+    return quick_sort(left) + [pivot] + quick_sort(right)
+
+
+arr1 = [random.randint(1,100000) for _ in range(10000)]
+arr2 = arr1.copy()
+arr3 = arr1.copy()
+
+print(bubble_sort(arr1))
+print(insert_sort(arr2))
+s = time.time()
+print(quick_sort(arr3))
+e = time.time()
+print(f'실행시간 : {e-s}')
