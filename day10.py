@@ -44,20 +44,25 @@ def quick_sort(arr):
         return arr
 
     pivot = arr[n//2]
-    left, right = [], []
+    left, mid, right = [], [], []
 
     for num in arr :
         if num < pivot :
             left.append(num)
         elif num > pivot :
             right.append(num)
+        else:
+            mid.append(num)
 
-    return quick_sort(left) + [pivot] + quick_sort(right)
+    return quick_sort(left) + mid + quick_sort(right)
 
 
 arr1 = [random.randint(1,100000) for _ in range(10000)]
 arr2 = arr1.copy()
 arr3 = arr1.copy()
+
+lists = [4,55,55,7,55,9,11]
+print(quick_sort(lists))
 
 print(bubble_sort(arr1))
 print(insert_sort(arr2))
